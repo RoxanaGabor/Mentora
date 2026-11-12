@@ -1,0 +1,45 @@
+<%- include('../partials/header') %>
+
+<!-- Schedule Section -->
+<section class="schedule-section">
+  <h2 class="section-heading">Live Sessions & Special Events</h2>
+  <p style="text-align: center;">
+    Stay updated with our upcoming live sessions and special events.
+  </p>
+
+  <!-- Events Listing -->
+  <div class="schedule-list">
+    <% events.forEach(event => { %>
+      <div class="event-card">
+        
+        <!-- Event Date -->
+        <div class="event-date">
+          <% const date = new Date(event.date); %>
+          <div class="day"><%= date.getDate() %></div>
+          <div class="month">
+            <%= date.toLocaleString('default', { month: 'short' }).toUpperCase() %>
+          </div>
+        </div>
+
+        <!-- Event Details -->
+        <div class="event-details">
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <h3 class="event-title"><%= event.title %></h3>
+            <% if (event.type) { %>
+              <span class="event-tag <%= event.type.toLowerCase() %>">
+                <%= event.type.toUpperCase() %>
+              </span>
+            <% } %>
+          </div>
+
+          <div class="event-time">🕒 <%= event.time %></div>
+          <p class="event-description"><%= event.description %></p>
+          <div class="event-instructor">👤 Hosted by <%= event.instructor_name %></div>
+        </div>
+        
+      </div>
+    <% }); %>
+  </div>
+</section>
+
+<%- include('../partials/footer') %>

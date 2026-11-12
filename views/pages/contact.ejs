@@ -1,0 +1,72 @@
+<%- include('../partials/header') %>
+
+<!-- Page Heading -->
+<h1 class="section-heading">Contact Us</h1>
+<p style="text-align: center; margin-bottom: 2rem; color: var(--body);">
+  Have a question or need assistance? Send us a message and we'll get back to you as soon as possible.
+</p>
+
+<!-- Contact Grid Container -->
+<div class="contact-grid">
+
+  <!-- Contact Form Section -->
+  <div class="contact-card">
+    <h3>Send a Message</h3>
+    <form action="/contact" method="POST" class="contact-form">
+      
+      <!-- Name Field -->
+      <div class="form-group">
+        <label for="name">Name *</label>
+        <input type="text" name="name" id="name" required>
+      </div>
+
+      <!-- Email Field -->
+      <div class="form-group">
+        <label for="email">Email *</label>
+        <input type="email" name="email" id="email" required>
+      </div>
+
+      <!-- Subject Field -->
+      <div class="form-group">
+        <label for="subject">Subject</label>
+        <input type="text" name="subject" id="subject">
+      </div>
+
+      <!-- Message Field -->
+      <div class="form-group">
+        <label for="message">Message *</label>
+        <textarea name="message" id="message" rows="5" required></textarea>
+      </div>
+
+      <!-- Submit Button -->
+      <button type="submit" class="btn btn-primary">Send Message</button>
+    </form>
+  </div>
+
+  <!-- Contact Information Section -->
+  <div class="contact-card">
+    <h3>Contact Information</h3>
+    <p><strong>📍 Address:</strong><br>157 Learning Street<br>Knowledge Avenue, W1H 8RP</p>
+    <p><strong>✉️ Email:</strong><br><a href="mailto:info@mentora.co.uk">info@mentora.co.uk</a></p>
+    <p><strong>📞 Phone:</strong><br>+44 (020) 8674 9436</p>
+    <p><strong>⏰ Support Hours:</strong><br>Mon – Fri: 9 AM – 5 PM</p>
+
+    <hr style="margin: 0.5rem 0;">
+
+    <!-- Embedded Google Map -->
+    <div class="map-container">
+      <h3>Our Location</h3>
+      <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d19800.061937306373!2d-0.1439!3d51.5155!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48761ace00000001%3A0x59cf45b7c8b19173!2sLearning%20Street%2C%20London%2C%20UK!5e0!3m2!1sen!2suk!4v1716487200000!5m2!1sen!2suk" 
+        height="200" 
+        style="width: 100%; border: 0;"  
+        allowfullscreen="" 
+        loading="lazy" 
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+  </div>
+
+</div> <!-- End of .contact-grid -->
+
+<%- include('../partials/footer') %>

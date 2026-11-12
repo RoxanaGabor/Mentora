@@ -1,0 +1,55 @@
+<%- include('../partials/header') %>
+
+<!-- Page Heading -->
+<h1 class="section-heading">Courses</h1>
+<p style="text-align: center; margin-bottom: 2rem; color: var(--body);">
+  Explore our wide range of courses taught by industry experts. From web development to data science, we have something for everyone.
+</p>
+
+<!-- Course Search Form -->
+<form action="/courses" method="get" class="search-container">
+  <div class="search-wrapper">
+    <input
+      type="text"
+      name="search"
+      class="search-bar"
+      placeholder="Search courses by name or topic..."
+      value="<%= searchQuery || '' %>">
+    <button type="submit" class="search-button" aria-label="Search">
+      <i class="fas fa-search"></i>
+    </button>
+  </div>
+</form>
+
+<!-- No Courses Message -->
+<% if (courses.length === 0) { %>
+  <p style="text-align:center;">No courses available at the moment. Please check back later.</p>
+
+<!-- Courses Grid -->
+<% } else { %>
+  <div class="grid grid-3">
+    <% courses.forEach(course => { %>
+      <div class="course-card">
+
+        <!-- Course Image -->
+        <img src="<%= course.image || 'https://via.placeholder.com/300x160?text=Course+Image' %>" 
+             alt="<%= course.name %>" 
+             onerror="this.onerror=null; this.src='https://via.placeholder.com/300x160?text=Course+Image';">
+
+        <!-- Course Content -->
+        <div class="course-content">
+          <h3 class="course-title"><%= course.name %></h3>
+          <p class="course-description"><%= course.description %></p>
+        </div>
+
+        <!-- Course Footer -->
+        <div class="course-footer">
+          <span class="course-instructor-name">Instructor: <%= course.instructor_name %></span>
+          <span class="course-duration"><%= course.duration %></span>
+        </div>
+      </div>
+    <% }); %>
+  </div>
+<% } %>
+
+<%- include('../partials/footer') %>

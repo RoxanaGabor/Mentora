@@ -1,0 +1,46 @@
+<%- include('../partials/header') %>
+
+<!-- FAQ Section -->
+<section class="featured-section">
+
+  <!-- FAQ Heading -->
+  <h2 class="section-heading">Frequently Asked Questions</h2>
+  <p style="text-align: center; margin-bottom: 2rem; color: var(--body);">
+    Find answers to common questions about Mentora, our courses, and support.
+  </p>
+
+  <!-- FAQ Items -->
+  <div class="faq-container">
+    <% faqs.forEach((faq, index) => { %>
+      <div class="faq-item">
+        <!-- FAQ Question Toggle -->
+        <button class="faq-question" onclick="toggleFaq(<%= index %>)">
+          <%= faq.question %>
+          <span class="toggle-icon" id="icon-<%= index %>">+</span>
+        </button>
+
+        <!-- FAQ Answer -->
+        <div class="faq-answer" id="answer-<%= index %>">
+          <p><%= faq.answer %></p>
+        </div>
+      </div>
+    <% }) %>
+  </div>
+
+</section>
+
+<!-- FAQ Toggle Script -->
+<script>
+  function toggleFaq(index) {
+    const answer = document.getElementById(`answer-${index}`);
+    const icon = document.getElementById(`icon-${index}`);
+
+    const isVisible = answer.style.display === 'block';
+    answer.style.display = isVisible ? 'none' : 'block';
+    icon.textContent = isVisible ? '+' : '–';
+  }
+</script>
+
+<%- include('../partials/footer') %>
+
+

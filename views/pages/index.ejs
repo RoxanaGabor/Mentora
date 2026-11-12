@@ -1,0 +1,77 @@
+<%- include('../partials/header') %>
+
+<!-- Hero Section -->
+<section class="hero">
+    <h2 style="font-size: 2rem; font-weight: bold;">Welcome to Mentora</h2>
+    <p>Your gateway to high-quality online education. Explore our courses, connect with expert instructors, and take your skills to the next level.</p>
+    <a href="/courses" class="cta-button orange">Browse Courses</a>
+</section>
+
+<!-- Featured Courses Section -->
+<section class="featured-section course-section">
+  <h2 class="section-heading">Featured Courses</h2>
+    <div class="grid grid-3">
+        <% featuredCourses.forEach(course => { %>
+            <div class="course-card">
+                <img src="<%= course.image %>" alt="<%= course.name %>">
+                <div class="course-content">
+                    <h3 class="course-title"><%= course.name %></h3>
+                    <p class="course-description"><%= course.description %></p>
+                </div>
+                <div class="course-footer">
+                    <span class="course-instructor">Instructor: <%= course.instructor_name %></span>
+                    <span class="course-duration"><%= course.duration %></span>
+                </div>
+            </div>
+        <% }); %>
+    </div>
+    <div style="text-align: center; margin-top: 1rem;">
+        <a href="/courses" class="btn btn-primary">View All Courses</a>
+    </div>
+</section>
+
+<!-- Featured Instructors Section -->
+<section class="featured-section instructor-section">
+  <h2 class="section-heading">Meet Our Instructors</h2>
+  <div class="grid grid-3">
+    <% featuredInstructors.forEach(instructor => { %>
+      <div class="instructor-card">
+        <img class="instructor-image" src="<%= instructor.image %>" alt="<%= instructor.name %>">
+        <div class="instructor-content">
+          <h3 class="instructor-name"><%= instructor.name %></h3>
+          <p class="instructor-subjects"><%= instructor.subjects %></p>
+        </div>
+      </div>
+    <% }); %>
+  </div>
+  <div style="text-align: center; margin-top: 1rem;">
+    <a href="/instructors" class="btn btn-primary">Meet All Instructors</a>
+  </div>
+</section>
+
+<!-- Upcoming Events Section -->
+<section class="featured-section events-section">
+  <h2 class="section-heading">Upcoming Events</h2>
+  <div class="grid grid-3">
+    <% upcomingEvents.forEach(event => { %>
+      <div class="event-card">
+        <div class="event-date">
+          <% const date = new Date(event.date); %>
+          <div class="day"><%= date.getDate() %></div>
+          <div class="month"><%= date.toLocaleString('default', { month: 'short' }) %></div>
+        </div>
+        <div class="event-details">
+          <h3 class="event-title"><%= event.title %></h3>
+          <div class="event-time">🕒 <%= event.time %></div>
+          <p><%= event.description %></p>
+          <div class="event-instructor">👤 Hosted by <%= event.instructor_name %></div>
+        </div>
+      </div>
+    <% }); %>
+  </div>
+  <div style="text-align: center; margin-top: 1rem;">
+    <a href="/schedule" class="btn btn-primary">View All Events</a>
+  </div>
+</section>
+
+<%- include('../partials/footer') %>

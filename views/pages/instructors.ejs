@@ -1,0 +1,27 @@
+<%- include('../partials/header') %>
+
+<!-- Page Heading -->
+<h1 class="section-heading">Instructors</h1>
+<p style="text-align: center; margin-bottom: 2rem; color: var(--body);">
+  Meet our expert instructors who bring years of academic and industry experience to help you succeed in your learning journey.
+</p>
+
+<!-- Instructors Grid -->
+<div class="grid grid-3">
+  <% instructors.forEach(instructor => { %>
+    <div class="card instructor-card">
+
+      <!-- Instructor Image -->
+      <img src="<%= instructor.image %>" alt="<%= instructor.name %>" class="instructor-image">
+
+      <!-- Instructor Info -->
+      <div class="card-body">
+        <h3><%= instructor.name %></h3>
+        <p><strong>Subjects:</strong> <%= instructor.subjects %></p>
+        <p><%= instructor.bio %></p>
+      </div>
+    </div>
+  <% }) %>
+</div>
+
+<%- include('../partials/footer') %>
